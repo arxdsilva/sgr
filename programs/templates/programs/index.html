@@ -1,12 +1,25 @@
 <html>
-    <header></header>
     <body>
-        <nav>
-            <a href="/">{{ name }}</a>
-        </nav>
-        <div class="limiter">
+        <ul>
+            <li><a href="/">{{ name }}</a></li>
+        </ul>
+            <div class="limiter">
             <div class="container-table100">
                 <div class="wrap-table100">
+                    <p>Ao vivo</p>
+                    <div class="table100 ver1 m-b-110" style="padding-top:0px;">
+					    <div class="table100-body js-pscroll">
+                            <table>
+                                <tbody>
+                                    {% for p in live_list %}
+                                    <tr class="row100 body">
+                                        <td class="cell100 column1">{{ p.name }} </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     <p>Radio Globo</p>
                     <div class="table100 ver1 m-b-110">
                         <div class="table100-head">
@@ -36,10 +49,9 @@
                                     </tr>
                                     {% endfor %}
                                 </tbody>
-                            </thead>
-                        </table>
+                            </table>
+                        </div>
                     </div>
-                </div>
                 <p>Radio CBN</p>
                 <div class="table100 ver1 m-b-110">
                         <div class="table100-head">
@@ -69,12 +81,11 @@
                                     </tr>
                                     {% endfor %}
                                 </tbody>
-                            </thead>
-                        </table>
+                            </table>
+                        </div>
                     </div>
-                </div>
-                <p>Radio BH</p>
-                <div class="table100 ver1 m-b-110">
+                    <p>Radio BH</p>
+                    <div class="table100 ver1 m-b-110">
                         <div class="table100-head">
                             <table>
                                 <thead>
@@ -86,7 +97,7 @@
                                 </thead>
                             </table>
                         </div>
-					    <div class="table100-body js-pscroll">
+                        <div class="table100-body js-pscroll">
                             <table>
                                 <tbody>
                                     {% for p in bh_list %}
@@ -102,8 +113,8 @@
                                     </tr>
                                     {% endfor %}
                                 </tbody>
-                            </thead>
-                        </table>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -113,6 +124,7 @@
 
         <link rel="stylesheet" type="text/css" href="{% static 'programs/main.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'programs/util.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'programs/custom.css' %}">
 
     </body>
 </html>
