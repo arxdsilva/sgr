@@ -1,74 +1,118 @@
-<nav>
-    <a href="/">{{ name }}</a>
-</nav>
+<html>
+    <header></header>
+    <body>
+        <nav>
+            <a href="/">{{ name }}</a>
+        </nav>
+        <div class="limiter">
+            <div class="container-table100">
+                <div class="wrap-table100">
+                    <p>Radio Globo</p>
+                    <div class="table100 ver1 m-b-110">
+                        <div class="table100-head">
+                            <table>
+                                <thead>
+                                    <tr class="row100 head">
+                                        <th class="cell100 column1">Programas</th>
+                                        <th class="cell100 column2">tipo</th>
+                                        <th class="cell100 column3">ao vivo</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+					    <div class="table100-body js-pscroll">
+                            <table>
+                                <tbody>
+                                    {% for p in globo_list %}
+                                    <tr class="row100 body">
+                                        <!-- adicionar link p/ programa -->
+                                        <td class="cell100 column1">{{ p.name }} </td>
+                                        <td class="cell100 column2">{{ p.p_type_name }}</td>
+                                        {% if p.is_live %}
+                                            <td class="cell100 column3">sim</td>
+                                        {% else %}
+                                        <td class="cell100 column3">nao</td>
+                                        {% endif %}
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <p>Radio CBN</p>
+                <div class="table100 ver1 m-b-110">
+                        <div class="table100-head">
+                            <table>
+                                <thead>
+                                    <tr class="row100 head">
+                                        <th class="cell100 column1">Programas</th>
+                                        <th class="cell100 column2">tipo</th>
+                                        <th class="cell100 column3">ao vivo</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+					    <div class="table100-body js-pscroll">
+                            <table>
+                                <tbody>
+                                    {% for p in cbn_list %}
+                                    <tr class="row100 body">
+                                        <!-- adicionar link p/ programa -->
+                                        <td class="cell100 column1">{{ p.name }} </td>
+                                        <td class="cell100 column2">{{ p.p_type_name }}</td>
+                                        {% if p.is_live %}
+                                            <td class="cell100 column3">sim</td>
+                                        {% else %}
+                                        <td class="cell100 column3">nao</td>
+                                        {% endif %}
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <p>Radio BH</p>
+                <div class="table100 ver1 m-b-110">
+                        <div class="table100-head">
+                            <table>
+                                <thead>
+                                    <tr class="row100 head">
+                                        <th class="cell100 column1">Programas</th>
+                                        <th class="cell100 column2">tipo</th>
+                                        <th class="cell100 column3">ao vivo</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+					    <div class="table100-body js-pscroll">
+                            <table>
+                                <tbody>
+                                    {% for p in bh_list %}
+                                    <tr class="row100 body">
+                                        <!-- adicionar link p/ programa -->
+                                        <td class="cell100 column1">{{ p.name }} </td>
+                                        <td class="cell100 column2">{{ p.p_type_name }}</td>
+                                        {% if p.is_live %}
+                                            <td class="cell100 column3">sim</td>
+                                        {% else %}
+                                        <td class="cell100 column3">nao</td>
+                                        {% endif %}
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<p>Radio Globo</p>
-<table>
-    <thead>
-        <tr class="row100 head">
-			<th class="">Programas</th>
-			<th class="">tipo</th>
-			<th class="">ao vivo</th>
-        </tr>
-        <tbody>
-            {% for p in globo_list %}
-            <tr class="row100 body">
-                <td class="">{{ p.name }} </td>
-                <td class="">{{ p.p_type_name }}</td>
-                {% if p.is_live %}
-                    <td class="">sim</td>
-                {% else %}
-                <td class="">nao</td>
-                {% endif %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </thead>
-</table>
-<p>Radio CBN</p>
-<table>
-    <thead>
-        <tr class="row100 head">
-			<th class="">Programas</th>
-            <th class="">tipo</th>
-            <th class="">ao vivo</th>
-        </tr>
-        <tbody>
-            {% for p in cbn_list %}
-            <tr class="row100 body">
-                <!-- adicionar link p/ programa -->
-                <td class="">{{ p.name }} </td>
-                <td class="">{{ p.p_type_name }}</td>
-                {% if p.is_live %}
-                    <td class="">sim</td>
-                {% else %}
-                <td class="">nao</td>
-                {% endif %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </thead>
-</table>
-<p>Radio BH</p>
-<table>
-    <thead>
-        <tr class="row100 head">
-			<th class="">Programas</th>
-            <th class="">tipo</th>
-            <th class="">ao vivo</th>
-        </tr>
-        <tbody>
-            {% for p in bh_list %}
-            <tr class="row100 body">
-                <td class="">{{ p.name }} </td>
-                <td class="">{{ p.p_type_name }}</td>
-                {% if p.is_live %}
-                    <td class="">sim</td>
-                {% else %}
-                <td class="">nao</td>
-                {% endif %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </thead>
-</table>
+        {% load static %}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'programs/main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'programs/util.css' %}">
+
+    </body>
+</html>
