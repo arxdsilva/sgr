@@ -3,7 +3,7 @@
         <ul>
             <li><a href="/">{{ name }}</a></li>
         </ul>
-            <div class="limiter">
+        <div class="limiter">
             <div class="container-table100">
                 <div class="wrap-table100">
                     <p>Ao vivo</p>
@@ -22,7 +22,7 @@
                             </table>
                         </div>
                     </div>
-                    <p>Radio Globo</p>
+                    <a href="{% url 'grid' 1 %}"><p>Radio Globo</p></a>
                     <div class="table100 ver1 m-b-110">
                         <div class="table100-head">
                             <table>
@@ -55,8 +55,8 @@
                             </table>
                         </div>
                     </div>
-                <p>Radio CBN</p>
-                <div class="table100 ver1 m-b-110">
+                    <a href="{% url 'grid' 2 %}"><p>Radio CBN</p></a>
+                    <div class="table100 ver1 m-b-110">
                         <div class="table100-head">
                             <table>
                                 <thead>
@@ -88,7 +88,7 @@
                             </table>
                         </div>
                     </div>
-                    <p>Radio BH</p>
+                    <a href="{% url 'grid' 3 %}"><p>Radio BH</p></a>
                     <div class="table100 ver1 m-b-110">
                         <div class="table100-head">
                             <table>

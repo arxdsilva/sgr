@@ -1,0 +1,48 @@
+<html>
+    <body>
+        <ul>
+            <li><a href="/">Grade {{ name }}</a></li>
+        </ul>
+        <div class="limiter">
+            <div class="container-table100">
+                <div class="wrap-table100">
+                        <div class="table100 ver1 m-b-110">
+                                <div class="table100-head">
+                                    <table>
+                                        <thead>
+                                            <tr class="row100 head">
+                                                <th class="cell100 column1">Programas</th>
+                                                <th class="cell100 column2">Tipo</th>
+                                                <th class="cell100 column3">Inicio</th>
+                                                <th class="cell100 column3">Fim</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <div class="table100-body js-pscroll">
+                                    <table>
+                                        <tbody>
+                                            {% for p in programs %}
+                                            <tr class="row100 body">
+                                                <td class="cell100 column1">
+                                                    <a href="{% url 'detail' p.id %}">{{ p.name }}</a>
+                                                </td>
+                                                <td class="cell100 column2">{{ p.p_type_name }}</td>
+                                                <td class="cell100 column3">{{ p.start }}</td>
+                                                <td class="cell100 column3">{{ p.end }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+
+                    {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'programs/main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'programs/util.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'programs/custom.css' %}">
+    </body>
+</html>

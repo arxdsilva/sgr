@@ -14,7 +14,7 @@ def index(request):
     live_list = _live_programs(programs_list)
     template = loader.get_template('programs/index.html')
     ctx = {
-        'name': 'Sistema Globo de Radio',
+        'name': 'SGR',
         'globo_list': globo_list,
         'cbn_list': cbn_list,
         'bh_list': bh_list,
@@ -32,6 +32,15 @@ def _radioFromProgramsList(programs, radioNumber):
 def detail(request, program_id):
     program = Program.objects.get(pk=program_id)
     return HttpResponse("You're looking at program %s by %s that started at %s and ends at %s." % (program.name, program.radio, program.start, program.end))
+
+def grid(request, grid_id):
+    programs = Program.objects.filter(radio=grid_id)
+    ctx = {
+        'name': 'SGR',
+        'programs': programs
+    }
+    template = loader.get_template('programs/grid.html')
+    return HttpResponse(template.render(ctx, request))
 
 def _live_programs(programs):
     live = []
