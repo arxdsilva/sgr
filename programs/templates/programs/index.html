@@ -2,15 +2,63 @@
     <a href="/">{{ name }}</a>
 </nav>
 
+<p>Radio Globo</p>
 <table>
     <thead>
         <tr class="row100 head">
-			<th class="">{{ globo_list.0.radio_name }}</th>
+			<th class="">Programas</th>
 			<th class="">tipo</th>
 			<th class="">ao vivo</th>
         </tr>
         <tbody>
             {% for p in globo_list %}
+            <tr class="row100 body">
+                <td class="">{{ p.name }} </td>
+                <td class="">{{ p.p_type_name }}</td>
+                {% if p.is_live %}
+                    <td class="">sim</td>
+                {% else %}
+                <td class="">nao</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </thead>
+</table>
+<p>Radio CBN</p>
+<table>
+    <thead>
+        <tr class="row100 head">
+			<th class="">Programas</th>
+            <th class="">tipo</th>
+            <th class="">ao vivo</th>
+        </tr>
+        <tbody>
+            {% for p in cbn_list %}
+            <tr class="row100 body">
+                <!-- adicionar link p/ programa -->
+                <td class="">{{ p.name }} </td>
+                <td class="">{{ p.p_type_name }}</td>
+                {% if p.is_live %}
+                    <td class="">sim</td>
+                {% else %}
+                <td class="">nao</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </thead>
+</table>
+<p>Radio BH</p>
+<table>
+    <thead>
+        <tr class="row100 head">
+			<th class="">Programas</th>
+            <th class="">tipo</th>
+            <th class="">ao vivo</th>
+        </tr>
+        <tbody>
+            {% for p in bh_list %}
             <tr class="row100 body">
                 <td class="">{{ p.name }} </td>
                 <td class="">{{ p.p_type_name }}</td>
