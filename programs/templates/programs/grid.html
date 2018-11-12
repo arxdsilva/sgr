@@ -25,7 +25,7 @@
                                             {% for p in programs %}
                                             <tr class="row100 body">
                                                 <td class="cell100 column1">
-                                                    <a href="{% url 'detail' p.id %}">{{ p.name }}</a>
+                                                    <a href="{% url 'program:detail' p.id %}">{{ p.name }}</a>
                                                 </td>
                                                 <td class="cell100 column2">{{ p.p_type_name }}</td>
                                                 <td class="cell100 column3">{{ p.start }}</td>

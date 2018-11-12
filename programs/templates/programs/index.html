@@ -14,7 +14,7 @@
                                     {% for p in live_list %}
                                     <tr class="row100 body">
                                         <td class="cell100 column1">
-                                            <a href="{% url 'detail' p.id %}">{{ p.name }}</a>
+                                            <a href="{% url 'program:detail' p.id %}">{{ p.name }}</a>
                                         </td>
                                     </tr>
                                     {% endfor %}
@@ -22,7 +22,7 @@
                             </table>
                         </div>
                     </div>
-                    <a href="{% url 'grid' 1 %}"><p>Radio Globo</p></a>
+                    <a href="{% url 'program:grid' 1 %}"><p>Radio Globo</p></a>
                     <div class="table100 ver1 m-b-110">
                         <div class="table100-head">
                             <table>
@@ -41,7 +41,7 @@
                                     {% for p in globo_list %}
                                     <tr class="row100 body">
                                         <td class="cell100 column1">
-                                            <a href="{% url 'detail' p.id %}">{{ p.name }}</a>
+                                            <a href="{% url 'program:detail' p.id %}">{{ p.name }}</a>
                                         </td>
                                         <td class="cell100 column2">{{ p.p_type_name }}</td>
                                         {% if p.is_live %}
@@ -55,7 +55,7 @@
                             </table>
                         </div>
                     </div>
-                    <a href="{% url 'grid' 2 %}"><p>Radio CBN</p></a>
+                    <a href="{% url 'program:grid' 2 %}"><p>Radio CBN</p></a>
                     <div class="table100 ver1 m-b-110">
                         <div class="table100-head">
                             <table>
@@ -74,7 +74,7 @@
                                     {% for p in cbn_list %}
                                     <tr class="row100 body">
                                         <td class="cell100 column1">
-                                            <a href="{% url 'detail' p.id %}">{{ p.name }}</a>
+                                            <a href="{% url 'program:detail' p.id %}">{{ p.name }}</a>
                                         </td>
                                         <td class="cell100 column2">{{ p.p_type_name }}</td>
                                         {% if p.is_live %}
@@ -88,7 +88,7 @@
                             </table>
                         </div>
                     </div>
-                    <a href="{% url 'grid' 3 %}"><p>Radio BH</p></a>
+                    <a href="{% url 'program:grid' 3 %}"><p>Radio BH</p></a>
                     <div class="table100 ver1 m-b-110">
                         <div class="table100-head">
                             <table>
@@ -107,7 +107,7 @@
                                     {% for p in bh_list %}
                                     <tr class="row100 body">
                                         <td class="cell100 column1">
-                                            <a href="{% url 'detail' p.id %}">{{ p.name }}</a>
+                                            <a href="{% url 'program:detail' p.id %}">{{ p.name }}</a>
                                         </td>
                                         <td class="cell100 column2">{{ p.p_type_name }}</td>
                                         {% if p.is_live %}
