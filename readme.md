@@ -12,7 +12,7 @@ This is my very first Django app and I've never fooled around with python for ve
 
 ## Clone project
 ```
-    $ git clone ...
+    $ git clone git@github.com:arxdsilva/sgr.git
 ```
 
 ## Create user
