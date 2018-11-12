@@ -8,19 +8,21 @@ from .models import Program
 
 def index(request):
     programs_list = Program.objects.order_by('-end')
-    globo_list = radioFromProgramsList(programs_list, 1)
-    cbn_list = radioFromProgramsList(programs_list, 2)
-    bh_list = radioFromProgramsList(programs_list, 3)
+    globo_list = _radioFromProgramsList(programs_list, 1)
+    cbn_list = _radioFromProgramsList(programs_list, 2)
+    bh_list = _radioFromProgramsList(programs_list, 3)
+    live_list = _live_programs(programs_list)
     template = loader.get_template('programs/index.html')
     ctx = {
         'name': 'Sistema Globo de Radio',
         'globo_list': globo_list,
         'cbn_list': cbn_list,
         'bh_list': bh_list,
+        'live_list': live_list,
     }
     return HttpResponse(template.render(ctx, request))
 
-def radioFromProgramsList(programs, radioNumber):
+def _radioFromProgramsList(programs, radioNumber):
     radio = []
     for program in programs:
         if program.radio == radioNumber:
@@ -29,3 +31,14 @@ def radioFromProgramsList(programs, radioNumber):
 
 def detail(request, program_id):
     return HttpResponse("You're looking at program %s." % program_id)
+
+def _live_programs(programs):
+    live = []
+    for p in programs:
+        if (p.ptype == 2) and (p.is_live):
+            live.append(p)
+    for p in programs:
+        if (p.is_live) and not (p.ptype == 2):
+            live.append(p)
+    return live
+
