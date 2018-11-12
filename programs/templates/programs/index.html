@@ -13,7 +13,9 @@
                                 <tbody>
                                     {% for p in live_list %}
                                     <tr class="row100 body">
-                                        <td class="cell100 column1">{{ p.name }} </td>
+                                        <td class="cell100 column1">
+                                            <a href="{% url 'detail' p.id %}">{{ p.name }}</a>
+                                        </td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
@@ -38,8 +40,9 @@
                                 <tbody>
                                     {% for p in globo_list %}
                                     <tr class="row100 body">
-                                        <!-- adicionar link p/ programa -->
-                                        <td class="cell100 column1">{{ p.name }} </td>
+                                        <td class="cell100 column1">
+                                            <a href="{% url 'detail' p.id %}">{{ p.name }}</a>
+                                        </td>
                                         <td class="cell100 column2">{{ p.p_type_name }}</td>
                                         {% if p.is_live %}
                                             <td class="cell100 column3">sim</td>
@@ -70,8 +73,9 @@
                                 <tbody>
                                     {% for p in cbn_list %}
                                     <tr class="row100 body">
-                                        <!-- adicionar link p/ programa -->
-                                        <td class="cell100 column1">{{ p.name }} </td>
+                                        <td class="cell100 column1">
+                                            <a href="{% url 'detail' p.id %}">{{ p.name }}</a>
+                                        </td>
                                         <td class="cell100 column2">{{ p.p_type_name }}</td>
                                         {% if p.is_live %}
                                             <td class="cell100 column3">sim</td>
@@ -102,8 +106,9 @@
                                 <tbody>
                                     {% for p in bh_list %}
                                     <tr class="row100 body">
-                                        <!-- adicionar link p/ programa -->
-                                        <td class="cell100 column1">{{ p.name }} </td>
+                                        <td class="cell100 column1">
+                                            <a href="{% url 'detail' p.id %}">{{ p.name }}</a>
+                                        </td>
                                         <td class="cell100 column2">{{ p.p_type_name }}</td>
                                         {% if p.is_live %}
                                             <td class="cell100 column3">sim</td>
@@ -121,10 +126,8 @@
         </div>
 
         {% load static %}
-
         <link rel="stylesheet" type="text/css" href="{% static 'programs/main.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'programs/util.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'programs/custom.css' %}">
-
     </body>
 </html>

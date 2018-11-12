@@ -30,7 +30,8 @@ def _radioFromProgramsList(programs, radioNumber):
     return radio
 
 def detail(request, program_id):
-    return HttpResponse("You're looking at program %s." % program_id)
+    program = Program.objects.get(pk=program_id)
+    return HttpResponse("You're looking at program %s by %s that started at %s and ends at %s." % (program.name, program.radio, program.start, program.end))
 
 def _live_programs(programs):
     live = []
