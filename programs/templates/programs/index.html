@@ -1,0 +1,26 @@
+<nav>
+    <a href="/">{{ name }}</a>
+</nav>
+
+<table>
+    <thead>
+        <tr class="row100 head">
+			<th class="">{{ globo_list.0.radio_name }}</th>
+			<th class="">tipo</th>
+			<th class="">ao vivo</th>
+        </tr>
+        <tbody>
+            {% for p in globo_list %}
+            <tr class="row100 body">
+                <td class="">{{ p.name }} </td>
+                <td class="">{{ p.p_type_name }}</td>
+                {% if p.is_live %}
+                    <td class="">sim</td>
+                {% else %}
+                <td class="">nao</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </thead>
+</table>
